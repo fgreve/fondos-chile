@@ -1,0 +1,8 @@
+{
+  "crons": [
+    { "path": "/api/cron/scrape-anid", "schedule": "0 6 * * *" },
+    { "path": "/api/cron/scrape-corfo", "schedule": "30 6 * * *" },
+    { "path": "/api/cron/scrape-fia", "schedule": "45 6 * * *" },
+    { "path": "/api/cron/send-alerts", "schedule": "0 8 * * *" }
+  ]
+}
