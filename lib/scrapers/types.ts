@@ -10,6 +10,14 @@ export interface RawCall {
   official_url: string
   bases_pdf_url?: string
   raw_html?: string
+  /** Name of the fund/program (used by multi-fund scrapers like AcciónInnova) */
+  fund_name?: string
+  /** Country or geographic scope */
+  country?: string
+  /** Beneficiary type slug (e.g. 'empresas', 'personas-naturales') */
+  beneficiary_type_slug?: string
+  /** Industry slugs for classification */
+  industry_slugs?: string[]
 }
 
 export interface RawAwardedProject {
