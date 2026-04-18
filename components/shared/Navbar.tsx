@@ -10,9 +10,9 @@ const navItems = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-surface-white/80 backdrop-blur-md border-b border-surface-border-light">
+    <header className="sticky top-0 z-50 w-full bg-text-charcoal/95 backdrop-blur-md border-b border-white/10">
       <nav className="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
-        <Logo />
+        <Logo variant="light" />
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
@@ -20,7 +20,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="px-4 py-2 text-sm font-medium text-text-dark rounded-pill hover:bg-black/5 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-white/80 rounded-pill hover:bg-white/10 hover:text-white transition-colors"
             >
               {item.label}
             </Link>
@@ -30,7 +30,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link
             href="/login"
-            className="text-sm font-medium text-text-dark hover:text-brand-blue transition-colors"
+            className="text-sm font-medium text-white/80 hover:text-white transition-colors"
           >
             Iniciar sesión
           </Link>

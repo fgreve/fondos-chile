@@ -15,30 +15,30 @@ export function MobileNav({ items }: MobileNavProps) {
     <>
       <button
         onClick={() => setOpen(!open)}
-        className="p-2 text-text-dark"
+        className="p-2 text-white/80"
         aria-label="Menú"
       >
         {open ? <X size={24} /> : <Menu size={24} />}
       </button>
 
       {open && (
-        <div className="absolute top-16 left-0 right-0 bg-surface-white border-b border-surface-border shadow-subtle p-4">
+        <div className="absolute top-16 left-0 right-0 bg-text-charcoal border-b border-white/10 shadow-subtle p-4">
           <div className="flex flex-col gap-2">
             {items.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="px-4 py-3 text-sm font-medium text-text-dark rounded-standard hover:bg-black/5 transition-colors"
+                className="px-4 py-3 text-sm font-medium text-white/80 rounded-standard hover:bg-white/10 hover:text-white transition-colors"
               >
                 {item.label}
               </Link>
             ))}
-            <hr className="my-2 border-surface-border-light" />
+            <hr className="my-2 border-white/10" />
             <Link
               href="/login"
               onClick={() => setOpen(false)}
-              className="px-4 py-3 text-sm font-medium text-brand-blue"
+              className="px-4 py-3 text-sm font-medium text-white/80 hover:text-white"
             >
               Iniciar sesión
             </Link>
