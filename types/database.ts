@@ -48,6 +48,7 @@ export type Database = {
           description: string | null
           typical_amount_clp: number | null
           target_audience: string | null
+          category_id: string | null
           created_at: string
         }
         Insert: {
@@ -58,6 +59,7 @@ export type Database = {
           description?: string | null
           typical_amount_clp?: number | null
           target_audience?: string | null
+          category_id?: string | null
           created_at?: string
         }
         Update: {
@@ -68,6 +70,7 @@ export type Database = {
           description?: string | null
           typical_amount_clp?: number | null
           target_audience?: string | null
+          category_id?: string | null
           created_at?: string
         }
         Relationships: [
@@ -76,6 +79,13 @@ export type Database = {
             columns: ["agency_id"]
             isOneToOne: false
             referencedRelation: "agencies"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "funds_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "fund_categories"
             referencedColumns: ["id"]
           },
         ]
@@ -97,6 +107,8 @@ export type Database = {
           official_url: string
           bases_pdf_url: string | null
           raw_source: Json | null
+          beneficiary_type_id: string | null
+          country: string | null
           last_scraped_at: string
           created_at: string
           updated_at: string
@@ -117,6 +129,8 @@ export type Database = {
           official_url: string
           bases_pdf_url?: string | null
           raw_source?: Json | null
+          beneficiary_type_id?: string | null
+          country?: string | null
           last_scraped_at?: string
           created_at?: string
           updated_at?: string
@@ -137,6 +151,8 @@ export type Database = {
           official_url?: string
           bases_pdf_url?: string | null
           raw_source?: Json | null
+          beneficiary_type_id?: string | null
+          country?: string | null
           last_scraped_at?: string
           created_at?: string
           updated_at?: string
@@ -147,6 +163,13 @@ export type Database = {
             columns: ["fund_id"]
             isOneToOne: false
             referencedRelation: "funds"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "calls_beneficiary_type_id_fkey"
+            columns: ["beneficiary_type_id"]
+            isOneToOne: false
+            referencedRelation: "beneficiary_types"
             referencedColumns: ["id"]
           },
         ]
@@ -195,6 +218,93 @@ export type Database = {
             columns: ["area_id"]
             isOneToOne: false
             referencedRelation: "areas"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      industries: {
+        Row: {
+          id: string
+          slug: string
+          name: string
+          sort_order: number
+        }
+        Insert: {
+          id?: string
+          slug: string
+          name: string
+          sort_order?: number
+        }
+        Update: {
+          id?: string
+          slug?: string
+          name?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      beneficiary_types: {
+        Row: {
+          id: string
+          slug: string
+          name: string
+        }
+        Insert: {
+          id?: string
+          slug: string
+          name: string
+        }
+        Update: {
+          id?: string
+          slug?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      fund_categories: {
+        Row: {
+          id: string
+          slug: string
+          name: string
+        }
+        Insert: {
+          id?: string
+          slug: string
+          name: string
+        }
+        Update: {
+          id?: string
+          slug?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      call_industries: {
+        Row: {
+          call_id: string
+          industry_id: string
+        }
+        Insert: {
+          call_id: string
+          industry_id: string
+        }
+        Update: {
+          call_id?: string
+          industry_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "call_industries_call_id_fkey"
+            columns: ["call_id"]
+            isOneToOne: false
+            referencedRelation: "calls"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "call_industries_industry_id_fkey"
+            columns: ["industry_id"]
+            isOneToOne: false
+            referencedRelation: "industries"
             referencedColumns: ["id"]
           },
         ]
@@ -302,6 +412,9 @@ export type Call = Database['public']['Tables']['calls']['Row']
 export type Area = Database['public']['Tables']['areas']['Row']
 export type AwardedProject = Database['public']['Tables']['awarded_projects']['Row']
 export type Subscription = Database['public']['Tables']['subscriptions']['Row']
+export type Industry = Database['public']['Tables']['industries']['Row']
+export type BeneficiaryType = Database['public']['Tables']['beneficiary_types']['Row']
+export type FundCategory = Database['public']['Tables']['fund_categories']['Row']
 
 // Joined types for UI
 export type CallWithFundAndAgency = Call & {

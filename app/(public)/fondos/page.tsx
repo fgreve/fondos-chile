@@ -16,14 +16,16 @@ interface PageProps {
   searchParams: Promise<{
     status?: string
     agency?: string
-    area?: string
+    industry?: string
+    beneficiary?: string
   }>
 }
 
 async function getCalls(filters: {
   status?: string
   agency?: string
-  area?: string
+  industry?: string
+  beneficiary?: string
 }): Promise<CallWithFundAndAgency[]> {
   const supabase = await createClient()
 
@@ -36,6 +38,19 @@ async function getCalls(filters: {
     query = query.eq("status", filters.status)
   }
 
+  if (filters.beneficiary) {
+    // Filter by beneficiary type via the FK on calls
+    const { data: bt } = await supabase
+      .from("beneficiary_types")
+      .select("id")
+      .eq("slug", filters.beneficiary)
+      .single()
+
+    if (bt) {
+      query = query.eq("beneficiary_type_id", bt.id)
+    }
+  }
+
   const { data } = await query.limit(50)
 
   let results = (data ?? []) as unknown as CallWithFundAndAgency[]
@@ -45,6 +60,19 @@ async function getCalls(filters: {
     results = results.filter((c) => c.fund?.agency?.slug === filters.agency)
   }
 
+  // Filter by industry client-side (many-to-many via call_industries)
+  if (filters.industry) {
+    const { data: matchingCallIds } = await supabase
+      .from("call_industries")
+      .select("call_id, industry:industries!inner(slug)")
+      .eq("industry.slug", filters.industry)
+
+    if (matchingCallIds) {
+      const callIdSet = new Set(matchingCallIds.map((ci: { call_id: string }) => ci.call_id))
+      results = results.filter((c) => callIdSet.has(c.id))
+    }
+  }
+
   return results
 }
 
@@ -52,10 +80,11 @@ export default async function FondosPage({ searchParams }: PageProps) {
   const filters = await searchParams
   const supabase = await createClient()
 
-  const [calls, { data: agencies }, { data: areas }] = await Promise.all([
+  const [calls, { data: agencies }, { data: industries }, { data: beneficiaryTypes }] = await Promise.all([
     getCalls(filters),
     supabase.from("agencies").select("*").order("name"),
-    supabase.from("areas").select("*").order("name"),
+    supabase.from("industries").select("*").order("sort_order"),
+    supabase.from("beneficiary_types").select("*").order("name"),
   ])
 
   return (
@@ -69,7 +98,11 @@ export default async function FondosPage({ searchParams }: PageProps) {
         </p>
 
         <Suspense fallback={null}>
-          <FundFilters agencies={agencies ?? []} areas={areas ?? []} />
+          <FundFilters
+            agencies={agencies ?? []}
+            industries={industries ?? []}
+            beneficiaryTypes={beneficiaryTypes ?? []}
+          />
         </Suspense>
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
