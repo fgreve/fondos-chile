@@ -4,7 +4,7 @@ import { MobileNav } from "./MobileNav"
 
 const navItems = [
   { href: "/fondos", label: "Fondos" },
-  { href: "/historico", label: "Hist\u00f3rico" },
+  { href: "/historico", label: "Histórico" },
   { href: "/agencias", label: "Agencias" },
 ]
 
@@ -32,7 +32,7 @@ export function Navbar() {
             href="/login"
             className="text-sm font-medium text-text-dark hover:text-brand-blue transition-colors"
           >
-            Iniciar sesi\u00f3n
+            Iniciar sesión
           </Link>
         </div>
 

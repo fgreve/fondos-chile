@@ -16,7 +16,7 @@ export function MobileNav({ items }: MobileNavProps) {
       <button
         onClick={() => setOpen(!open)}
         className="p-2 text-text-dark"
-        aria-label="Men\u00fa"
+        aria-label="Menú"
       >
         {open ? <X size={24} /> : <Menu size={24} />}
       </button>
@@ -40,7 +40,7 @@ export function MobileNav({ items }: MobileNavProps) {
               onClick={() => setOpen(false)}
               className="px-4 py-3 text-sm font-medium text-brand-blue"
             >
-              Iniciar sesi\u00f3n
+              Iniciar sesión
             </Link>
           </div>
         </div>

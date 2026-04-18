@@ -3,7 +3,7 @@ import Link from "next/link"
 const footerLinks = {
   plataforma: [
     { href: "/fondos", label: "Fondos vigentes" },
-    { href: "/historico", label: "Archivo hist\u00f3rico" },
+    { href: "/historico", label: "Archivo histórico" },
     { href: "/historico/adjudicados", label: "Proyectos adjudicados" },
   ],
   agencias: [
@@ -13,7 +13,7 @@ const footerLinks = {
     { href: "/agencias/minciencia", label: "Minciencia" },
   ],
   recursos: [
-    { href: "#", label: "Gu\u00eda de postulaci\u00f3n" },
+    { href: "#", label: "Guía de postulación" },
     { href: "#", label: "Preguntas frecuentes" },
     { href: "#", label: "API para desarrolladores" },
   ],
@@ -35,7 +35,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
-              La fuente \u00fanica de verdad sobre el ecosistema de financiamiento CTCi en Chile.
+              La fuente única de verdad sobre el ecosistema de financiamiento CTCi en Chile.
             </p>
           </div>
 
@@ -62,7 +62,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/40">
-          \u00a9 {new Date().getFullYear()} FondosChile. Datos obtenidos de fuentes oficiales p\u00fablicas.
+          © {new Date().getFullYear()} FondosChile. Datos obtenidos de fuentes oficiales públicas.
         </div>
       </div>
     </footer>
