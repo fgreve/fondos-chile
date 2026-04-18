@@ -6,6 +6,8 @@ const navItems = [
   { href: "/fondos", label: "Fondos" },
   { href: "/historico", label: "Histórico" },
   { href: "/agencias", label: "Agencias" },
+  { href: "/nosotros", label: "Nosotros" },
+  { href: "/contacto", label: "Contacto" },
 ]
 
 export function Navbar() {

@@ -13,9 +13,9 @@ const footerLinks = {
     { href: "/agencias/minciencia", label: "Minciencia" },
   ],
   recursos: [
-    { href: "#", label: "Guía de postulación" },
-    { href: "#", label: "Preguntas frecuentes" },
-    { href: "#", label: "API para desarrolladores" },
+    { href: "/nosotros", label: "Nosotros" },
+    { href: "/contacto", label: "Contacto" },
+    { href: "/contacto", label: "Preguntas frecuentes" },
   ],
 }
 
