@@ -6,7 +6,7 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Database {
+export type Database = {
   public: {
     Tables: {
       agencies: {
@@ -19,11 +19,25 @@ export interface Database {
           logo_url: string | null
           created_at: string
         }
-        Insert: Omit<Database['public']['Tables']['agencies']['Row'], 'id' | 'created_at'> & {
+        Insert: {
           id?: string
+          slug: string
+          name: string
+          short_name?: string | null
+          website?: string | null
+          logo_url?: string | null
           created_at?: string
         }
-        Update: Partial<Database['public']['Tables']['agencies']['Insert']>
+        Update: {
+          id?: string
+          slug?: string
+          name?: string
+          short_name?: string | null
+          website?: string | null
+          logo_url?: string | null
+          created_at?: string
+        }
+        Relationships: []
       }
       funds: {
         Row: {
@@ -36,11 +50,35 @@ export interface Database {
           target_audience: string | null
           created_at: string
         }
-        Insert: Omit<Database['public']['Tables']['funds']['Row'], 'id' | 'created_at'> & {
+        Insert: {
           id?: string
+          agency_id: string
+          slug: string
+          name: string
+          description?: string | null
+          typical_amount_clp?: number | null
+          target_audience?: string | null
           created_at?: string
         }
-        Update: Partial<Database['public']['Tables']['funds']['Insert']>
+        Update: {
+          id?: string
+          agency_id?: string
+          slug?: string
+          name?: string
+          description?: string | null
+          typical_amount_clp?: number | null
+          target_audience?: string | null
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "funds_agency_id_fkey"
+            columns: ["agency_id"]
+            isOneToOne: false
+            referencedRelation: "agencies"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       calls: {
         Row: {
@@ -48,7 +86,7 @@ export interface Database {
           fund_id: string
           year: number
           title: string
-          status: 'upcoming' | 'open' | 'closed' | 'awarded' | 'cancelled'
+          status: string
           opens_at: string | null
           closes_at: string | null
           results_at: string | null
@@ -63,13 +101,55 @@ export interface Database {
           created_at: string
           updated_at: string
         }
-        Insert: Omit<Database['public']['Tables']['calls']['Row'], 'id' | 'last_scraped_at' | 'created_at' | 'updated_at'> & {
+        Insert: {
           id?: string
+          fund_id: string
+          year: number
+          title: string
+          status: string
+          opens_at?: string | null
+          closes_at?: string | null
+          results_at?: string | null
+          start_date?: string | null
+          max_amount_clp?: number | null
+          duration_months?: number | null
+          requirements?: string | null
+          official_url: string
+          bases_pdf_url?: string | null
+          raw_source?: Json | null
           last_scraped_at?: string
           created_at?: string
           updated_at?: string
         }
-        Update: Partial<Database['public']['Tables']['calls']['Insert']>
+        Update: {
+          id?: string
+          fund_id?: string
+          year?: number
+          title?: string
+          status?: string
+          opens_at?: string | null
+          closes_at?: string | null
+          results_at?: string | null
+          start_date?: string | null
+          max_amount_clp?: number | null
+          duration_months?: number | null
+          requirements?: string | null
+          official_url?: string
+          bases_pdf_url?: string | null
+          raw_source?: Json | null
+          last_scraped_at?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "calls_fund_id_fkey"
+            columns: ["fund_id"]
+            isOneToOne: false
+            referencedRelation: "funds"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       areas: {
         Row: {
@@ -77,18 +157,47 @@ export interface Database {
           slug: string
           name: string
         }
-        Insert: Omit<Database['public']['Tables']['areas']['Row'], 'id'> & {
+        Insert: {
           id?: string
+          slug: string
+          name: string
         }
-        Update: Partial<Database['public']['Tables']['areas']['Insert']>
+        Update: {
+          id?: string
+          slug?: string
+          name?: string
+        }
+        Relationships: []
       }
       call_areas: {
         Row: {
           call_id: string
           area_id: string
         }
-        Insert: Database['public']['Tables']['call_areas']['Row']
-        Update: Partial<Database['public']['Tables']['call_areas']['Insert']>
+        Insert: {
+          call_id: string
+          area_id: string
+        }
+        Update: {
+          call_id?: string
+          area_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "call_areas_call_id_fkey"
+            columns: ["call_id"]
+            isOneToOne: false
+            referencedRelation: "calls"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "call_areas_area_id_fkey"
+            columns: ["area_id"]
+            isOneToOne: false
+            referencedRelation: "areas"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       awarded_projects: {
         Row: {
@@ -104,11 +213,41 @@ export interface Database {
           source_url: string | null
           created_at: string
         }
-        Insert: Omit<Database['public']['Tables']['awarded_projects']['Row'], 'id' | 'created_at'> & {
+        Insert: {
           id?: string
+          call_id: string
+          project_code?: string | null
+          title: string
+          principal_investigator?: string | null
+          institution?: string | null
+          amount_clp?: number | null
+          year: number
+          abstract?: string | null
+          source_url?: string | null
           created_at?: string
         }
-        Update: Partial<Database['public']['Tables']['awarded_projects']['Insert']>
+        Update: {
+          id?: string
+          call_id?: string
+          project_code?: string | null
+          title?: string
+          principal_investigator?: string | null
+          institution?: string | null
+          amount_clp?: number | null
+          year?: number
+          abstract?: string | null
+          source_url?: string | null
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "awarded_projects_call_id_fkey"
+            columns: ["call_id"]
+            isOneToOne: false
+            referencedRelation: "calls"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       subscriptions: {
         Row: {
@@ -120,17 +259,39 @@ export interface Database {
           email_enabled: boolean
           created_at: string
         }
-        Insert: Omit<Database['public']['Tables']['subscriptions']['Row'], 'id' | 'created_at' | 'email_enabled'> & {
+        Insert: {
           id?: string
-          created_at?: string
+          user_id: string
+          agency_ids?: string[] | null
+          area_ids?: string[] | null
+          min_amount_clp?: number | null
           email_enabled?: boolean
+          created_at?: string
         }
-        Update: Partial<Database['public']['Tables']['subscriptions']['Insert']>
+        Update: {
+          id?: string
+          user_id?: string
+          agency_ids?: string[] | null
+          area_ids?: string[] | null
+          min_amount_clp?: number | null
+          email_enabled?: boolean
+          created_at?: string
+        }
+        Relationships: []
       }
     }
-    Views: Record<string, never>
-    Functions: Record<string, never>
-    Enums: Record<string, never>
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      [_ in never]: never
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
   }
 }
 
