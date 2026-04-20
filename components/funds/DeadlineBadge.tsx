@@ -12,32 +12,20 @@ export function DeadlineBadge({ closesAt, status }: DeadlineBadgeProps) {
   const daysLeft = differenceInDays(deadline, new Date())
 
   if (isPast(deadline)) {
-    return (
-      <span className="text-sm font-medium text-[#dc2626]">
-        Plazo vencido
-      </span>
-    )
+    return <span className="text-xs font-medium text-red-600">Plazo vencido</span>
   }
 
   if (daysLeft <= 7) {
     return (
-      <span className="text-sm font-medium text-[#dc2626]">
+      <span className="text-xs font-medium text-red-600">
         {daysLeft === 0 ? "Último día" : `${daysLeft}d restantes`}
       </span>
     )
   }
 
   if (daysLeft <= 30) {
-    return (
-      <span className="text-sm font-medium text-[#b45309]">
-        {daysLeft}d restantes
-      </span>
-    )
+    return <span className="text-xs font-medium text-amber-600">{daysLeft}d restantes</span>
   }
 
-  return (
-    <span className="text-sm font-medium text-[#1a8754]">
-      {daysLeft}d restantes
-    </span>
-  )
+  return <span className="text-xs font-medium text-emerald-600">{daysLeft}d restantes</span>
 }

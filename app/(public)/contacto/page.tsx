@@ -9,18 +9,17 @@ export const metadata: Metadata = {
 
 export default function ContactoPage() {
   return (
-    <div className="mx-auto max-w-[1120px] px-6 py-16">
-      <p className="text-sm font-medium text-[#0055FF] uppercase tracking-[0.08em] mb-3">
-        Contacto
-      </p>
-      <h1 className="font-[Satoshi,sans-serif] font-bold text-[3rem] leading-[1.1] tracking-tight text-[#1a1a1a] max-w-[640px] mb-4">
-        ¿Cómo podemos ayudarte?
-      </h1>
-      <p className="text-lg text-[#6b6b6b] max-w-[520px] mb-12 leading-relaxed">
-        Preguntas, sugerencias o reportes de errores. Nos encantaría saber de ti.
-      </p>
+    <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20">
+      <div className="max-w-2xl mb-16">
+        <h1 className="font-[DM_Serif_Display,serif] text-5xl leading-[1.1] text-[#1a1a1a] mb-6">
+          ¿Cómo podemos ayudarte?
+        </h1>
+        <p className="text-lg text-[#555555] leading-relaxed">
+          Preguntas, sugerencias o reportes de errores. Nos encantaría saber de ti.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e8e8e8] mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
         {[
           {
             title: "Reportar un error",
@@ -53,17 +52,17 @@ export default function ContactoPage() {
         ].map((card) => (
           <div
             key={card.title}
-            className="bg-white p-6 border border-[#e8e8e8] flex flex-col"
+            className="bg-white rounded-xl border border-[#e5e5e5] p-6 flex flex-col hover:border-[#1a3c3c]/30 transition-colors"
           >
-            <h2 className="font-[Satoshi,sans-serif] font-bold text-base text-[#1a1a1a] mb-1.5">
+            <h2 className="font-semibold text-lg text-[#1a1a1a] mb-2">
               {card.title}
             </h2>
-            <p className="text-sm text-[#6b6b6b] leading-relaxed mb-4 flex-1">
+            <p className="text-sm text-[#555555] leading-relaxed mb-5 flex-1">
               {card.description}
             </p>
             <Link
               href={card.href}
-              className="text-sm font-medium text-[#0055FF] hover:text-[#0044cc] transition-colors duration-200"
+              className="text-sm font-medium text-[#1a3c3c] hover:text-[#2a5a5a] transition-colors"
             >
               {card.cta} →
             </Link>
@@ -72,11 +71,11 @@ export default function ContactoPage() {
       </div>
 
       {/* FAQ */}
-      <section className="max-w-[640px]">
-        <h2 className="font-[Satoshi,sans-serif] font-bold text-xl tracking-tight text-[#1a1a1a] mb-8">
+      <section className="max-w-2xl">
+        <h2 className="font-[DM_Serif_Display,serif] text-2xl text-[#1a1a1a] mb-8">
           Preguntas frecuentes
         </h2>
-        <div className="space-y-6">
+        <div className="space-y-8">
           {[
             {
               q: "¿Los datos son oficiales?",
@@ -95,11 +94,11 @@ export default function ContactoPage() {
               a: "Estamos trabajando en suscripciones personalizadas por email. Pronto podrás configurar alertas según tu perfil.",
             },
           ].map((faq) => (
-            <div key={faq.q} className="border-b border-[#e8e8e8] pb-6">
-              <h3 className="font-[Satoshi,sans-serif] font-bold text-base text-[#1a1a1a] mb-1.5">
+            <div key={faq.q} className="border-b border-[#e5e5e5] pb-8">
+              <h3 className="font-semibold text-[#1a1a1a] mb-2">
                 {faq.q}
               </h3>
-              <p className="text-sm text-[#6b6b6b] leading-relaxed">
+              <p className="text-sm text-[#555555] leading-relaxed">
                 {faq.a}
               </p>
             </div>

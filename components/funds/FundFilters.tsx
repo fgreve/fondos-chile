@@ -40,17 +40,17 @@ export function FundFilters({ agencies, industries, beneficiaryTypes }: FundFilt
   )
 
   return (
-    <div className="flex flex-col sm:flex-row flex-wrap gap-6">
-      {/* Status tabs */}
-      <div className="flex gap-0 border-b border-[#e8e8e8]">
+    <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+      {/* Status pills */}
+      <div className="flex gap-2">
         {statusOptions.map((opt) => (
           <button
             key={opt.value}
             onClick={() => updateFilter("status", opt.value)}
-            className={`px-4 py-2 text-sm font-medium transition-colors duration-200 border-b-2 -mb-px ${
+            className={`px-4 py-2 text-sm rounded-full transition-all duration-200 ${
               currentStatus === opt.value
-                ? "border-[#1a1a1a] text-[#1a1a1a]"
-                : "border-transparent text-[#999999] hover:text-[#6b6b6b]"
+                ? "bg-[#1a3c3c] text-white"
+                : "bg-white border border-[#e5e5e5] text-[#555555] hover:border-[#1a3c3c]/30"
             }`}
           >
             {opt.label}
@@ -63,7 +63,7 @@ export function FundFilters({ agencies, industries, beneficiaryTypes }: FundFilt
         <select
           value={currentAgency}
           onChange={(e) => updateFilter("agency", e.target.value)}
-          className="px-3 py-2 text-sm font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
+          className="px-4 py-2 text-sm border border-[#e5e5e5] bg-white text-[#1a1a1a] rounded-full hover:border-[#1a3c3c]/30 transition-colors"
         >
           <option value="">Todas las agencias</option>
           {agencies.map((a) => (
@@ -76,7 +76,7 @@ export function FundFilters({ agencies, industries, beneficiaryTypes }: FundFilt
         <select
           value={currentIndustry}
           onChange={(e) => updateFilter("industry", e.target.value)}
-          className="px-3 py-2 text-sm font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
+          className="px-4 py-2 text-sm border border-[#e5e5e5] bg-white text-[#1a1a1a] rounded-full hover:border-[#1a3c3c]/30 transition-colors"
         >
           <option value="">Todas las industrias</option>
           {industries.map((ind) => (
@@ -89,7 +89,7 @@ export function FundFilters({ agencies, industries, beneficiaryTypes }: FundFilt
         <select
           value={currentBeneficiary}
           onChange={(e) => updateFilter("beneficiary", e.target.value)}
-          className="px-3 py-2 text-sm font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
+          className="px-4 py-2 text-sm border border-[#e5e5e5] bg-white text-[#1a1a1a] rounded-full hover:border-[#1a3c3c]/30 transition-colors"
         >
           <option value="">Todos los beneficiarios</option>
           {beneficiaryTypes.map((bt) => (

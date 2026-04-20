@@ -8,31 +8,30 @@ export const metadata: Metadata = {
 
 export default function NosotrosPage() {
   return (
-    <div className="mx-auto max-w-[1120px] px-6 py-16">
+    <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20">
       {/* Hero */}
-      <p className="text-sm font-medium text-[#0055FF] uppercase tracking-[0.08em] mb-3">
-        Sobre nosotros
-      </p>
-      <h1 className="font-[Satoshi,sans-serif] font-bold text-[3rem] leading-[1.1] tracking-tight text-[#1a1a1a] max-w-[640px] mb-4">
-        La fuente única sobre financiamiento CTCi en Chile
-      </h1>
-      <p className="text-lg text-[#6b6b6b] max-w-[560px] mb-16 leading-relaxed">
-        Centralizamos información dispersa en decenas de sitios gubernamentales para que nunca te pierdas una convocatoria.
-      </p>
+      <div className="max-w-2xl mb-20">
+        <h1 className="font-[DM_Serif_Display,serif] text-5xl leading-[1.1] text-[#1a1a1a] mb-6">
+          La fuente única sobre financiamiento CTCi en Chile.
+        </h1>
+        <p className="text-lg text-[#555555] leading-relaxed">
+          Centralizamos información dispersa en decenas de sitios gubernamentales para que nunca te pierdas una convocatoria.
+        </p>
+      </div>
 
       {/* Mission */}
-      <section className="mb-16 max-w-[640px]">
-        <h2 className="font-[Satoshi,sans-serif] font-bold text-xl tracking-tight text-[#1a1a1a] mb-4">
+      <section className="mb-20 max-w-2xl">
+        <h2 className="font-[DM_Serif_Display,serif] text-2xl text-[#1a1a1a] mb-4">
           Nuestra misión
         </h2>
-        <p className="text-base text-[#6b6b6b] leading-relaxed mb-4">
+        <p className="text-[#555555] leading-relaxed mb-4">
           FondosChile nació de una necesidad concreta: la información sobre
           fondos de investigación, innovación y emprendimiento en Chile está
           dispersa en decenas de sitios gubernamentales, agencias y
           organizaciones. Investigadores, emprendedores y empresas pierden horas
           buscando oportunidades que podrían transformar sus proyectos.
         </p>
-        <p className="text-base text-[#6b6b6b] leading-relaxed">
+        <p className="text-[#555555] leading-relaxed">
           Nuestra plataforma centraliza, actualiza y organiza toda esta
           información en un solo lugar, con scrapers automáticos que revisan
           diariamente las fuentes oficiales.
@@ -40,11 +39,11 @@ export default function NosotrosPage() {
       </section>
 
       {/* What we do */}
-      <section className="mb-16">
-        <h2 className="font-[Satoshi,sans-serif] font-bold text-xl tracking-tight text-[#1a1a1a] mb-6">
+      <section className="mb-20">
+        <h2 className="font-[DM_Serif_Display,serif] text-2xl text-[#1a1a1a] mb-8">
           Qué hacemos
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e8e8e8]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
               title: "Catálogo vigente",
@@ -64,12 +63,12 @@ export default function NosotrosPage() {
           ].map((item) => (
             <div
               key={item.title}
-              className="bg-white p-6 border border-[#e8e8e8]"
+              className="bg-white rounded-xl border border-[#e5e5e5] p-6"
             >
-              <h3 className="font-[Satoshi,sans-serif] font-bold text-base text-[#1a1a1a] mb-2">
+              <h3 className="font-semibold text-[#1a1a1a] mb-2">
                 {item.title}
               </h3>
-              <p className="text-sm text-[#6b6b6b] leading-relaxed">
+              <p className="text-sm text-[#555555] leading-relaxed">
                 {item.description}
               </p>
             </div>
@@ -78,16 +77,17 @@ export default function NosotrosPage() {
       </section>
 
       {/* Sources */}
-      <section className="mb-16 max-w-[640px]">
-        <h2 className="font-[Satoshi,sans-serif] font-bold text-xl tracking-tight text-[#1a1a1a] mb-4">
-          Fuentes
+      <section className="mb-20 max-w-2xl">
+        <h2 className="font-[DM_Serif_Display,serif] text-2xl text-[#1a1a1a] mb-4">
+          Nuestras fuentes
         </h2>
-        <p className="text-base text-[#6b6b6b] leading-relaxed mb-4">
+        <p className="text-[#555555] leading-relaxed mb-6">
           Todos los datos provienen de fuentes oficiales públicas:
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {["ANID", "Corfo", "FIA", "AcciónInnova", "Fondos.gob.cl", "Minciencia"].map((source) => (
-            <span key={source} className="text-sm text-[#6b6b6b] py-1">
+            <span key={source} className="flex items-center gap-2 text-sm text-[#555555]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1a3c3c]" />
               {source}
             </span>
           ))}
@@ -95,11 +95,11 @@ export default function NosotrosPage() {
       </section>
 
       {/* Open data */}
-      <section className="border-t border-[#e8e8e8] pt-12 max-w-[640px]">
-        <h2 className="font-[Satoshi,sans-serif] font-bold text-xl tracking-tight text-[#1a1a1a] mb-4">
+      <section className="max-w-2xl border-t border-[#e5e5e5] pt-12">
+        <h2 className="font-[DM_Serif_Display,serif] text-2xl text-[#1a1a1a] mb-4">
           Datos abiertos
         </h2>
-        <p className="text-base text-[#6b6b6b] leading-relaxed">
+        <p className="text-[#555555] leading-relaxed">
           Creemos en la transparencia y el acceso libre a la información.
           FondosChile utiliza exclusivamente datos públicos obtenidos de fuentes
           oficiales. Nuestro objetivo es democratizar el acceso a las

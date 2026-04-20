@@ -85,13 +85,13 @@ export default async function FondosPage({ searchParams }: PageProps) {
   ])
 
   return (
-    <div className="py-12 px-6">
-      <div className="mx-auto max-w-[1120px]">
-        <h1 className="font-[Satoshi,sans-serif] font-bold text-3xl tracking-tight text-[#1a1a1a] mb-1">
+    <div className="py-16 px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <h1 className="font-[DM_Serif_Display,serif] text-4xl text-[#1a1a1a] mb-2">
           Fondos disponibles
         </h1>
-        <p className="text-base text-[#6b6b6b] mb-8">
-          Convocatorias de financiamiento para investigación e innovación en Chile.
+        <p className="text-[#555555] mb-10">
+          Explora las convocatorias de financiamiento para investigación e innovación en Chile.
         </p>
 
         <Suspense fallback={null}>
@@ -102,15 +102,15 @@ export default async function FondosPage({ searchParams }: PageProps) {
           />
         </Suspense>
 
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e8e8e8]">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {calls.map((call) => (
             <FundCard key={call.id} call={call} />
           ))}
         </div>
 
         {calls.length === 0 && (
-          <div className="text-center py-20">
-            <p className="text-[#999999] text-base">
+          <div className="text-center py-24">
+            <p className="text-[#888888] text-lg">
               No se encontraron convocatorias con los filtros seleccionados.
             </p>
           </div>
