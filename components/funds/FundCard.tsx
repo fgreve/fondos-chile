@@ -11,27 +11,27 @@ interface FundCardProps {
 export function FundCard({ call }: FundCardProps) {
   return (
     <Link href={`/fondos/${call.fund.slug}`}>
-      <article className="group bg-surface-white rounded-generous border border-surface-border p-6 hover:shadow-brand-glow transition-shadow duration-300">
+      <article className="group bg-white p-6 border border-[#e8e8e8] hover:border-[#cccccc] transition-colors duration-200">
         {/* Header */}
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <span className="text-small-label font-semibold text-brand-blue uppercase tracking-wider">
+        <div className="flex items-center justify-between gap-3 mb-4">
+          <span className="text-[11px] font-semibold text-[#999999] uppercase tracking-[0.06em]">
             {call.fund.agency.short_name ?? call.fund.agency.name}
           </span>
           <StatusBadge status={call.status} />
         </div>
 
         {/* Title */}
-        <h3 className="font-display text-card-title text-text-dark mb-2 group-hover:text-brand-blue transition-colors">
+        <h3 className="font-[Satoshi,sans-serif] font-bold text-[1.125rem] leading-snug text-[#1a1a1a] mb-1.5 group-hover:text-[#0055FF] transition-colors duration-200">
           {call.title}
         </h3>
 
         {/* Fund name */}
-        <p className="text-sm text-text-secondary mb-4">
+        <p className="text-[13px] text-[#6b6b6b] mb-5">
           {call.fund.name}
         </p>
 
         {/* Meta */}
-        <div className="flex flex-wrap items-center gap-3 text-caption text-text-muted">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-[#999999]">
           {call.max_amount_clp && (
             <span>Hasta {formatCLP(call.max_amount_clp)}</span>
           )}
@@ -39,7 +39,7 @@ export function FundCard({ call }: FundCardProps) {
             <span>{call.duration_months} meses</span>
           )}
           {call.closes_at && (
-            <span>Cierre: {formatDate(call.closes_at, { month: "short" })}</span>
+            <span>Cierre {formatDate(call.closes_at, { month: "short" })}</span>
           )}
         </div>
 

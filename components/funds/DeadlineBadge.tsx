@@ -13,7 +13,7 @@ export function DeadlineBadge({ closesAt, status }: DeadlineBadgeProps) {
 
   if (isPast(deadline)) {
     return (
-      <span className="inline-flex items-center px-2.5 py-0.5 rounded-pill text-small-label font-semibold bg-red-100 text-red-700">
+      <span className="text-[12px] font-medium text-[#dc2626]">
         Plazo vencido
       </span>
     )
@@ -21,7 +21,7 @@ export function DeadlineBadge({ closesAt, status }: DeadlineBadgeProps) {
 
   if (daysLeft <= 7) {
     return (
-      <span className="inline-flex items-center px-2.5 py-0.5 rounded-pill text-small-label font-semibold bg-orange-100 text-orange-700">
+      <span className="text-[12px] font-medium text-[#dc2626]">
         {daysLeft === 0 ? "Último día" : `${daysLeft}d restantes`}
       </span>
     )
@@ -29,14 +29,14 @@ export function DeadlineBadge({ closesAt, status }: DeadlineBadgeProps) {
 
   if (daysLeft <= 30) {
     return (
-      <span className="inline-flex items-center px-2.5 py-0.5 rounded-pill text-small-label font-semibold bg-yellow-100 text-yellow-700">
+      <span className="text-[12px] font-medium text-[#b45309]">
         {daysLeft}d restantes
       </span>
     )
   }
 
   return (
-    <span className="inline-flex items-center px-2.5 py-0.5 rounded-pill text-small-label font-semibold bg-green-100 text-green-700">
+    <span className="text-[12px] font-medium text-[#1a8754]">
       {daysLeft}d restantes
     </span>
   )

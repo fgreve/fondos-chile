@@ -1,24 +1,9 @@
-const statusConfig: Record<string, { label: string; className: string }> = {
-  open: {
-    label: "Abierto",
-    className: "bg-green-100 text-green-700",
-  },
-  upcoming: {
-    label: "Próximamente",
-    className: "bg-primary-200 text-primary-700",
-  },
-  closed: {
-    label: "Cerrado",
-    className: "bg-gray-100 text-gray-600",
-  },
-  awarded: {
-    label: "Adjudicado",
-    className: "bg-purple-100 text-purple-700",
-  },
-  cancelled: {
-    label: "Cancelado",
-    className: "bg-red-100 text-red-600",
-  },
+const statusConfig: Record<string, { label: string; dotColor: string }> = {
+  open: { label: "Abierto", dotColor: "bg-[#1a8754]" },
+  upcoming: { label: "Próximamente", dotColor: "bg-[#0055FF]" },
+  closed: { label: "Cerrado", dotColor: "bg-[#999999]" },
+  awarded: { label: "Adjudicado", dotColor: "bg-[#7c3aed]" },
+  cancelled: { label: "Cancelado", dotColor: "bg-[#dc2626]" },
 }
 
 interface StatusBadgeProps {
@@ -26,12 +11,11 @@ interface StatusBadgeProps {
 }
 
 export function StatusBadge({ status }: StatusBadgeProps) {
-  const config = statusConfig[status] ?? { label: status, className: "bg-gray-100 text-gray-600" }
+  const config = statusConfig[status] ?? { label: status, dotColor: "bg-[#999999]" }
 
   return (
-    <span
-      className={`inline-flex items-center px-2.5 py-0.5 rounded-pill text-small-label font-semibold ${config.className}`}
-    >
+    <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#6b6b6b]">
+      <span className={`w-1.5 h-1.5 rounded-full ${config.dotColor}`} />
       {config.label}
     </span>
   )

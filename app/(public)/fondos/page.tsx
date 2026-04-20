@@ -39,7 +39,6 @@ async function getCalls(filters: {
   }
 
   if (filters.beneficiary) {
-    // Filter by beneficiary type via the FK on calls
     const { data: bt } = await supabase
       .from("beneficiary_types")
       .select("id")
@@ -55,12 +54,10 @@ async function getCalls(filters: {
 
   let results = (data ?? []) as unknown as CallWithFundAndAgency[]
 
-  // Filter by agency client-side (Supabase nested filtering limitation)
   if (filters.agency) {
     results = results.filter((c) => c.fund?.agency?.slug === filters.agency)
   }
 
-  // Filter by industry client-side (many-to-many via call_industries)
   if (filters.industry) {
     const { data: matchingCallIds } = await supabase
       .from("call_industries")
@@ -88,13 +85,13 @@ export default async function FondosPage({ searchParams }: PageProps) {
   ])
 
   return (
-    <div className="py-10 px-4">
-      <div className="mx-auto max-w-7xl">
-        <h1 className="font-display text-section-heading text-text-dark mb-2">
+    <div className="py-12 px-6">
+      <div className="mx-auto max-w-[1120px]">
+        <h1 className="font-[Satoshi,sans-serif] font-bold text-[1.75rem] tracking-tight text-[#1a1a1a] mb-1">
           Fondos disponibles
         </h1>
-        <p className="text-text-secondary mb-8">
-          Explora las convocatorias de financiamiento para investigación e innovación en Chile.
+        <p className="text-[15px] text-[#6b6b6b] mb-8">
+          Convocatorias de financiamiento para investigación e innovación en Chile.
         </p>
 
         <Suspense fallback={null}>
@@ -105,7 +102,7 @@ export default async function FondosPage({ searchParams }: PageProps) {
           />
         </Suspense>
 
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e8e8e8]">
           {calls.map((call) => (
             <FundCard key={call.id} call={call} />
           ))}
@@ -113,7 +110,7 @@ export default async function FondosPage({ searchParams }: PageProps) {
 
         {calls.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-text-muted text-body-large">
+            <p className="text-[#999999] text-base">
               No se encontraron convocatorias con los filtros seleccionados.
             </p>
           </div>

@@ -40,17 +40,17 @@ export function FundFilters({ agencies, industries, beneficiaryTypes }: FundFilt
   )
 
   return (
-    <div className="flex flex-wrap gap-3">
-      {/* Status pills */}
-      <div className="flex gap-1">
+    <div className="flex flex-col sm:flex-row flex-wrap gap-6">
+      {/* Status tabs */}
+      <div className="flex gap-0 border-b border-[#e8e8e8]">
         {statusOptions.map((opt) => (
           <button
             key={opt.value}
             onClick={() => updateFilter("status", opt.value)}
-            className={`px-4 py-2 text-sm font-medium rounded-pill transition-colors ${
+            className={`px-4 py-2 text-[13px] font-medium transition-colors duration-200 border-b-2 -mb-px ${
               currentStatus === opt.value
-                ? "bg-text-charcoal text-white"
-                : "bg-black/5 text-text-dark hover:bg-black/10"
+                ? "border-[#1a1a1a] text-[#1a1a1a]"
+                : "border-transparent text-[#999999] hover:text-[#6b6b6b]"
             }`}
           >
             {opt.label}
@@ -58,47 +58,47 @@ export function FundFilters({ agencies, industries, beneficiaryTypes }: FundFilt
         ))}
       </div>
 
-      {/* Agency select */}
-      <select
-        value={currentAgency}
-        onChange={(e) => updateFilter("agency", e.target.value)}
-        className="px-4 py-2 text-sm font-medium rounded-standard border border-surface-border bg-surface-white text-text-dark"
-      >
-        <option value="">Todas las agencias</option>
-        {agencies.map((a) => (
-          <option key={a.id} value={a.slug}>
-            {a.short_name ?? a.name}
-          </option>
-        ))}
-      </select>
+      {/* Selects */}
+      <div className="flex flex-wrap gap-3">
+        <select
+          value={currentAgency}
+          onChange={(e) => updateFilter("agency", e.target.value)}
+          className="px-3 py-2 text-[13px] font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
+        >
+          <option value="">Todas las agencias</option>
+          {agencies.map((a) => (
+            <option key={a.id} value={a.slug}>
+              {a.short_name ?? a.name}
+            </option>
+          ))}
+        </select>
 
-      {/* Industry select */}
-      <select
-        value={currentIndustry}
-        onChange={(e) => updateFilter("industry", e.target.value)}
-        className="px-4 py-2 text-sm font-medium rounded-standard border border-surface-border bg-surface-white text-text-dark"
-      >
-        <option value="">Todas las industrias</option>
-        {industries.map((ind) => (
-          <option key={ind.id} value={ind.slug}>
-            {ind.name}
-          </option>
-        ))}
-      </select>
+        <select
+          value={currentIndustry}
+          onChange={(e) => updateFilter("industry", e.target.value)}
+          className="px-3 py-2 text-[13px] font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
+        >
+          <option value="">Todas las industrias</option>
+          {industries.map((ind) => (
+            <option key={ind.id} value={ind.slug}>
+              {ind.name}
+            </option>
+          ))}
+        </select>
 
-      {/* Beneficiary type select */}
-      <select
-        value={currentBeneficiary}
-        onChange={(e) => updateFilter("beneficiary", e.target.value)}
-        className="px-4 py-2 text-sm font-medium rounded-standard border border-surface-border bg-surface-white text-text-dark"
-      >
-        <option value="">Todos los beneficiarios</option>
-        {beneficiaryTypes.map((bt) => (
-          <option key={bt.id} value={bt.slug}>
-            {bt.name}
-          </option>
-        ))}
-      </select>
+        <select
+          value={currentBeneficiary}
+          onChange={(e) => updateFilter("beneficiary", e.target.value)}
+          className="px-3 py-2 text-[13px] font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
+        >
+          <option value="">Todos los beneficiarios</option>
+          {beneficiaryTypes.map((bt) => (
+            <option key={bt.id} value={bt.slug}>
+              {bt.name}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   )
 }

@@ -12,27 +12,27 @@ const navItems = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-text-charcoal/95 backdrop-blur-md border-b border-white/10">
-      <nav className="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
-        <Logo variant="light" />
+    <header className="sticky top-0 z-50 w-full bg-[#fafafa]/95 backdrop-blur-sm border-b border-[#e8e8e8]">
+      <nav className="mx-auto max-w-[1120px] flex items-center justify-between px-6 h-14">
+        <Logo />
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="px-4 py-2 text-sm font-medium text-white/80 rounded-pill hover:bg-white/10 hover:text-white transition-colors"
+              className="text-[13px] font-medium text-[#6b6b6b] hover:text-[#1a1a1a] transition-colors duration-200 relative after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[1.5px] after:bg-[#1a1a1a] hover:after:w-full after:transition-all after:duration-200"
             >
               {item.label}
             </Link>
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center">
           <Link
             href="/login"
-            className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+            className="text-[13px] font-medium text-[#0055FF] hover:text-[#0044cc] transition-colors duration-200"
           >
             Iniciar sesión
           </Link>

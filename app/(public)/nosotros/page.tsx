@@ -1,74 +1,75 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Nosotros — FondosChile",
+  title: "Nosotros",
   description:
-    "Conoce al equipo detrás de FondosChile, la plataforma que centraliza los fondos de investigación e innovación en Chile.",
+    "Conoce FondosChile, la plataforma que centraliza los fondos de investigación e innovación en Chile.",
 }
 
 export default function NosotrosPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+    <div className="mx-auto max-w-[1120px] px-6 py-16">
       {/* Hero */}
-      <h1 className="font-display text-4xl font-bold text-text-dark mb-4">
-        Sobre FondosChile
+      <p className="text-[13px] font-medium text-[#0055FF] uppercase tracking-[0.08em] mb-3">
+        Sobre nosotros
+      </p>
+      <h1 className="font-[Satoshi,sans-serif] font-bold text-[2.5rem] leading-[1.1] tracking-tight text-[#1a1a1a] max-w-[640px] mb-4">
+        La fuente única sobre financiamiento CTCi en Chile
       </h1>
-      <p className="text-lg text-text-secondary mb-12 max-w-2xl">
-        La fuente única de verdad sobre el ecosistema de financiamiento CTCi en
-        Chile.
+      <p className="text-base text-[#6b6b6b] max-w-[560px] mb-16 leading-relaxed">
+        Centralizamos información dispersa en decenas de sitios gubernamentales para que nunca te pierdas una convocatoria.
       </p>
 
       {/* Mission */}
-      <section className="mb-12">
-        <h2 className="font-display text-2xl font-semibold text-text-dark mb-4">
+      <section className="mb-16 max-w-[640px]">
+        <h2 className="font-[Satoshi,sans-serif] font-bold text-[1.25rem] tracking-tight text-[#1a1a1a] mb-4">
           Nuestra misión
         </h2>
-        <p className="text-text-secondary leading-relaxed mb-4">
+        <p className="text-[15px] text-[#6b6b6b] leading-relaxed mb-4">
           FondosChile nació de una necesidad concreta: la información sobre
           fondos de investigación, innovación y emprendimiento en Chile está
           dispersa en decenas de sitios gubernamentales, agencias y
           organizaciones. Investigadores, emprendedores y empresas pierden horas
           buscando oportunidades que podrían transformar sus proyectos.
         </p>
-        <p className="text-text-secondary leading-relaxed">
+        <p className="text-[15px] text-[#6b6b6b] leading-relaxed">
           Nuestra plataforma centraliza, actualiza y organiza toda esta
           información en un solo lugar, con scrapers automáticos que revisan
-          diariamente las fuentes oficiales para que nunca te pierdas una
-          convocatoria.
+          diariamente las fuentes oficiales.
         </p>
       </section>
 
       {/* What we do */}
-      <section className="mb-12">
-        <h2 className="font-display text-2xl font-semibold text-text-dark mb-6">
+      <section className="mb-16">
+        <h2 className="font-[Satoshi,sans-serif] font-bold text-[1.25rem] tracking-tight text-[#1a1a1a] mb-6">
           Qué hacemos
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e8e8e8]">
           {[
             {
               title: "Catálogo vigente",
               description:
-                "Concursos abiertos y próximos con fechas, requisitos, monto y bases oficiales de ANID, Corfo, FIA, AcciónInnova y más.",
+                "Concursos abiertos y próximos con fechas, requisitos, monto y bases oficiales.",
             },
             {
               title: "Archivo histórico",
               description:
-                "Convocatorias cerradas y proyectos adjudicados, buscables por año, institución, área y postulante.",
+                "Convocatorias cerradas y proyectos adjudicados, buscables por año e institución.",
             },
             {
               title: "Actualización diaria",
               description:
-                "Scrapers programados que revisan las fuentes oficiales cada 24 horas para mantener los datos siempre frescos.",
+                "Scrapers programados que revisan las fuentes oficiales cada 24 horas.",
             },
           ].map((item) => (
             <div
               key={item.title}
-              className="bg-surface-white rounded-generous border border-surface-border p-6"
+              className="bg-white p-6 border border-[#e8e8e8]"
             >
-              <h3 className="font-display font-semibold text-text-dark mb-2">
+              <h3 className="font-[Satoshi,sans-serif] font-bold text-[15px] text-[#1a1a1a] mb-2">
                 {item.title}
               </h3>
-              <p className="text-sm text-text-secondary leading-relaxed">
+              <p className="text-[13px] text-[#6b6b6b] leading-relaxed">
                 {item.description}
               </p>
             </div>
@@ -77,40 +78,28 @@ export default function NosotrosPage() {
       </section>
 
       {/* Sources */}
-      <section className="mb-12">
-        <h2 className="font-display text-2xl font-semibold text-text-dark mb-4">
-          Nuestras fuentes
+      <section className="mb-16 max-w-[640px]">
+        <h2 className="font-[Satoshi,sans-serif] font-bold text-[1.25rem] tracking-tight text-[#1a1a1a] mb-4">
+          Fuentes
         </h2>
-        <p className="text-text-secondary leading-relaxed mb-4">
-          Todos los datos provienen de fuentes oficiales públicas. Actualmente
-          cubrimos:
+        <p className="text-[15px] text-[#6b6b6b] leading-relaxed mb-4">
+          Todos los datos provienen de fuentes oficiales públicas:
         </p>
-        <ul className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {[
-            "ANID",
-            "Corfo",
-            "FIA",
-            "AcciónInnova",
-            "Fondos.gob.cl",
-            "Minciencia",
-          ].map((source) => (
-            <li
-              key={source}
-              className="flex items-center gap-2 text-text-secondary"
-            >
-              <span className="w-2 h-2 rounded-full bg-brand-blue" />
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+          {["ANID", "Corfo", "FIA", "AcciónInnova", "Fondos.gob.cl", "Minciencia"].map((source) => (
+            <span key={source} className="text-[13px] text-[#6b6b6b] py-1">
               {source}
-            </li>
+            </span>
           ))}
-        </ul>
+        </div>
       </section>
 
       {/* Open data */}
-      <section className="bg-surface-light rounded-generous p-8">
-        <h2 className="font-display text-2xl font-semibold text-text-dark mb-4">
+      <section className="border-t border-[#e8e8e8] pt-12 max-w-[640px]">
+        <h2 className="font-[Satoshi,sans-serif] font-bold text-[1.25rem] tracking-tight text-[#1a1a1a] mb-4">
           Datos abiertos
         </h2>
-        <p className="text-text-secondary leading-relaxed">
+        <p className="text-[15px] text-[#6b6b6b] leading-relaxed">
           Creemos en la transparencia y el acceso libre a la información.
           FondosChile utiliza exclusivamente datos públicos obtenidos de fuentes
           oficiales. Nuestro objetivo es democratizar el acceso a las
