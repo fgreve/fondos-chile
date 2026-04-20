@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <div className="mx-auto max-w-[1120px] px-6 py-16">
-      <p className="text-[13px] font-medium text-[#0055FF] uppercase tracking-[0.08em] mb-3">
+      <p className="text-sm font-medium text-[#0055FF] uppercase tracking-[0.08em] mb-3">
         Contacto
       </p>
-      <h1 className="font-[Satoshi,sans-serif] font-bold text-[2.5rem] leading-[1.1] tracking-tight text-[#1a1a1a] max-w-[640px] mb-4">
+      <h1 className="font-[Satoshi,sans-serif] font-bold text-[3rem] leading-[1.1] tracking-tight text-[#1a1a1a] max-w-[640px] mb-4">
         ¿Cómo podemos ayudarte?
       </h1>
-      <p className="text-base text-[#6b6b6b] max-w-[520px] mb-12 leading-relaxed">
+      <p className="text-lg text-[#6b6b6b] max-w-[520px] mb-12 leading-relaxed">
         Preguntas, sugerencias o reportes de errores. Nos encantaría saber de ti.
       </p>
 
@@ -55,15 +55,15 @@ export default function ContactoPage() {
             key={card.title}
             className="bg-white p-6 border border-[#e8e8e8] flex flex-col"
           >
-            <h2 className="font-[Satoshi,sans-serif] font-bold text-[15px] text-[#1a1a1a] mb-1.5">
+            <h2 className="font-[Satoshi,sans-serif] font-bold text-base text-[#1a1a1a] mb-1.5">
               {card.title}
             </h2>
-            <p className="text-[13px] text-[#6b6b6b] leading-relaxed mb-4 flex-1">
+            <p className="text-sm text-[#6b6b6b] leading-relaxed mb-4 flex-1">
               {card.description}
             </p>
             <Link
               href={card.href}
-              className="text-[13px] font-medium text-[#0055FF] hover:text-[#0044cc] transition-colors duration-200"
+              className="text-sm font-medium text-[#0055FF] hover:text-[#0044cc] transition-colors duration-200"
             >
               {card.cta} →
             </Link>
@@ -73,7 +73,7 @@ export default function ContactoPage() {
 
       {/* FAQ */}
       <section className="max-w-[640px]">
-        <h2 className="font-[Satoshi,sans-serif] font-bold text-[1.25rem] tracking-tight text-[#1a1a1a] mb-8">
+        <h2 className="font-[Satoshi,sans-serif] font-bold text-xl tracking-tight text-[#1a1a1a] mb-8">
           Preguntas frecuentes
         </h2>
         <div className="space-y-6">
@@ -96,10 +96,10 @@ export default function ContactoPage() {
             },
           ].map((faq) => (
             <div key={faq.q} className="border-b border-[#e8e8e8] pb-6">
-              <h3 className="font-[Satoshi,sans-serif] font-bold text-[15px] text-[#1a1a1a] mb-1.5">
+              <h3 className="font-[Satoshi,sans-serif] font-bold text-base text-[#1a1a1a] mb-1.5">
                 {faq.q}
               </h3>
-              <p className="text-[13px] text-[#6b6b6b] leading-relaxed">
+              <p className="text-sm text-[#6b6b6b] leading-relaxed">
                 {faq.a}
               </p>
             </div>

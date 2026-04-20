@@ -36,13 +36,13 @@ export default async function HomePage() {
       {/* Hero */}
       <section className="pt-24 pb-20 px-6">
         <div className="mx-auto max-w-[1120px]">
-          <p className="text-[13px] font-medium text-[#0055FF] uppercase tracking-[0.08em] mb-4">
+          <p className="text-sm font-medium text-[#0055FF] uppercase tracking-[0.08em] mb-4">
             Plataforma de fondos CTCi
           </p>
-          <h1 className="font-[Satoshi,sans-serif] font-bold text-[3.5rem] leading-[1.08] tracking-tight text-[#1a1a1a] max-w-[720px] mb-6">
+          <h1 className="font-[Satoshi,sans-serif] font-bold text-[4rem] leading-[1.08] tracking-tight text-[#1a1a1a] max-w-[720px] mb-6">
             Todos los fondos de investigación en Chile, en un solo lugar
           </h1>
-          <p className="text-base text-[#6b6b6b] max-w-[520px] mb-10 leading-relaxed">
+          <p className="text-lg text-[#6b6b6b] max-w-[520px] mb-10 leading-relaxed">
             Centraliza, compara y encuentra oportunidades de financiamiento de ANID, Corfo, FIA y más.
           </p>
           <div className="flex items-center gap-6">
@@ -53,7 +53,7 @@ export default async function HomePage() {
               Explorar fondos
               <ArrowRight size={14} />
             </Link>
-            <span className="text-sm text-[#999999]">
+            <span className="text-base text-[#999999]">
               <span className="font-bold text-[#1a1a1a] tabular-nums">{callCount}</span> convocatorias activas
             </span>
           </div>
@@ -75,7 +75,7 @@ export default async function HomePage() {
               </h2>
               <Link
                 href="/fondos?status=open"
-                className="text-[13px] font-medium text-[#0055FF] hover:text-[#0044cc] transition-colors duration-200 flex items-center gap-1"
+                className="text-sm font-medium text-[#0055FF] hover:text-[#0044cc] transition-colors duration-200 flex items-center gap-1"
               >
                 Ver todos <ArrowRight size={12} />
               </Link>

@@ -47,7 +47,7 @@ export function FundFilters({ agencies, industries, beneficiaryTypes }: FundFilt
           <button
             key={opt.value}
             onClick={() => updateFilter("status", opt.value)}
-            className={`px-4 py-2 text-[13px] font-medium transition-colors duration-200 border-b-2 -mb-px ${
+            className={`px-4 py-2 text-sm font-medium transition-colors duration-200 border-b-2 -mb-px ${
               currentStatus === opt.value
                 ? "border-[#1a1a1a] text-[#1a1a1a]"
                 : "border-transparent text-[#999999] hover:text-[#6b6b6b]"
@@ -63,7 +63,7 @@ export function FundFilters({ agencies, industries, beneficiaryTypes }: FundFilt
         <select
           value={currentAgency}
           onChange={(e) => updateFilter("agency", e.target.value)}
-          className="px-3 py-2 text-[13px] font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
+          className="px-3 py-2 text-sm font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
         >
           <option value="">Todas las agencias</option>
           {agencies.map((a) => (
@@ -76,7 +76,7 @@ export function FundFilters({ agencies, industries, beneficiaryTypes }: FundFilt
         <select
           value={currentIndustry}
           onChange={(e) => updateFilter("industry", e.target.value)}
-          className="px-3 py-2 text-[13px] font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
+          className="px-3 py-2 text-sm font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
         >
           <option value="">Todas las industrias</option>
           {industries.map((ind) => (
@@ -89,7 +89,7 @@ export function FundFilters({ agencies, industries, beneficiaryTypes }: FundFilt
         <select
           value={currentBeneficiary}
           onChange={(e) => updateFilter("beneficiary", e.target.value)}
-          className="px-3 py-2 text-[13px] font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
+          className="px-3 py-2 text-sm font-medium border border-[#e8e8e8] bg-white text-[#1a1a1a] rounded-[4px] hover:border-[#cccccc] transition-colors duration-200"
         >
           <option value="">Todos los beneficiarios</option>
           {beneficiaryTypes.map((bt) => (

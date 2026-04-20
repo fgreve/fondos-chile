@@ -14,7 +14,7 @@
   --font-display: "Satoshi", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* Swiss Palette */
-  --color-swiss-bg: #fafafa;
+  --color-swiss-bg: #f5f5f0;
   --color-swiss-surface: #ffffff;
   --color-swiss-border: #e8e8e8;
   --color-swiss-border-hover: #cccccc;
@@ -54,7 +54,7 @@
     @apply font-sans antialiased;
     background-color: var(--color-swiss-bg);
     color: var(--color-swiss-text);
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
     letter-spacing: -0.01em;
   }
@@ -124,7 +124,7 @@
 }
 
 :root {
-  --background: oklch(0.985 0 0);
+  --background: oklch(0.97 0.005 90);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);

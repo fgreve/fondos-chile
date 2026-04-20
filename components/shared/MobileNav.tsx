@@ -22,7 +22,7 @@ export function MobileNav({ items }: MobileNavProps) {
       </button>
 
       {open && (
-        <div className="absolute top-14 left-0 right-0 bg-[#fafafa] border-b border-[#e8e8e8] px-6 py-4">
+        <div className="absolute top-14 left-0 right-0 bg-[#f5f5f0] border-b border-[#e8e8e8] px-6 py-4">
           <div className="flex flex-col gap-1">
             {items.map((item) => (
               <Link

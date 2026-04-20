@@ -10,29 +10,29 @@ export default function NosotrosPage() {
   return (
     <div className="mx-auto max-w-[1120px] px-6 py-16">
       {/* Hero */}
-      <p className="text-[13px] font-medium text-[#0055FF] uppercase tracking-[0.08em] mb-3">
+      <p className="text-sm font-medium text-[#0055FF] uppercase tracking-[0.08em] mb-3">
         Sobre nosotros
       </p>
-      <h1 className="font-[Satoshi,sans-serif] font-bold text-[2.5rem] leading-[1.1] tracking-tight text-[#1a1a1a] max-w-[640px] mb-4">
+      <h1 className="font-[Satoshi,sans-serif] font-bold text-[3rem] leading-[1.1] tracking-tight text-[#1a1a1a] max-w-[640px] mb-4">
         La fuente única sobre financiamiento CTCi en Chile
       </h1>
-      <p className="text-base text-[#6b6b6b] max-w-[560px] mb-16 leading-relaxed">
+      <p className="text-lg text-[#6b6b6b] max-w-[560px] mb-16 leading-relaxed">
         Centralizamos información dispersa en decenas de sitios gubernamentales para que nunca te pierdas una convocatoria.
       </p>
 
       {/* Mission */}
       <section className="mb-16 max-w-[640px]">
-        <h2 className="font-[Satoshi,sans-serif] font-bold text-[1.25rem] tracking-tight text-[#1a1a1a] mb-4">
+        <h2 className="font-[Satoshi,sans-serif] font-bold text-xl tracking-tight text-[#1a1a1a] mb-4">
           Nuestra misión
         </h2>
-        <p className="text-[15px] text-[#6b6b6b] leading-relaxed mb-4">
+        <p className="text-base text-[#6b6b6b] leading-relaxed mb-4">
           FondosChile nació de una necesidad concreta: la información sobre
           fondos de investigación, innovación y emprendimiento en Chile está
           dispersa en decenas de sitios gubernamentales, agencias y
           organizaciones. Investigadores, emprendedores y empresas pierden horas
           buscando oportunidades que podrían transformar sus proyectos.
         </p>
-        <p className="text-[15px] text-[#6b6b6b] leading-relaxed">
+        <p className="text-base text-[#6b6b6b] leading-relaxed">
           Nuestra plataforma centraliza, actualiza y organiza toda esta
           información en un solo lugar, con scrapers automáticos que revisan
           diariamente las fuentes oficiales.
@@ -41,7 +41,7 @@ export default function NosotrosPage() {
 
       {/* What we do */}
       <section className="mb-16">
-        <h2 className="font-[Satoshi,sans-serif] font-bold text-[1.25rem] tracking-tight text-[#1a1a1a] mb-6">
+        <h2 className="font-[Satoshi,sans-serif] font-bold text-xl tracking-tight text-[#1a1a1a] mb-6">
           Qué hacemos
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e8e8e8]">
@@ -66,10 +66,10 @@ export default function NosotrosPage() {
               key={item.title}
               className="bg-white p-6 border border-[#e8e8e8]"
             >
-              <h3 className="font-[Satoshi,sans-serif] font-bold text-[15px] text-[#1a1a1a] mb-2">
+              <h3 className="font-[Satoshi,sans-serif] font-bold text-base text-[#1a1a1a] mb-2">
                 {item.title}
               </h3>
-              <p className="text-[13px] text-[#6b6b6b] leading-relaxed">
+              <p className="text-sm text-[#6b6b6b] leading-relaxed">
                 {item.description}
               </p>
             </div>
@@ -79,15 +79,15 @@ export default function NosotrosPage() {
 
       {/* Sources */}
       <section className="mb-16 max-w-[640px]">
-        <h2 className="font-[Satoshi,sans-serif] font-bold text-[1.25rem] tracking-tight text-[#1a1a1a] mb-4">
+        <h2 className="font-[Satoshi,sans-serif] font-bold text-xl tracking-tight text-[#1a1a1a] mb-4">
           Fuentes
         </h2>
-        <p className="text-[15px] text-[#6b6b6b] leading-relaxed mb-4">
+        <p className="text-base text-[#6b6b6b] leading-relaxed mb-4">
           Todos los datos provienen de fuentes oficiales públicas:
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {["ANID", "Corfo", "FIA", "AcciónInnova", "Fondos.gob.cl", "Minciencia"].map((source) => (
-            <span key={source} className="text-[13px] text-[#6b6b6b] py-1">
+            <span key={source} className="text-sm text-[#6b6b6b] py-1">
               {source}
             </span>
           ))}
@@ -96,10 +96,10 @@ export default function NosotrosPage() {
 
       {/* Open data */}
       <section className="border-t border-[#e8e8e8] pt-12 max-w-[640px]">
-        <h2 className="font-[Satoshi,sans-serif] font-bold text-[1.25rem] tracking-tight text-[#1a1a1a] mb-4">
+        <h2 className="font-[Satoshi,sans-serif] font-bold text-xl tracking-tight text-[#1a1a1a] mb-4">
           Datos abiertos
         </h2>
-        <p className="text-[15px] text-[#6b6b6b] leading-relaxed">
+        <p className="text-base text-[#6b6b6b] leading-relaxed">
           Creemos en la transparencia y el acceso libre a la información.
           FondosChile utiliza exclusivamente datos públicos obtenidos de fuentes
           oficiales. Nuestro objetivo es democratizar el acceso a las

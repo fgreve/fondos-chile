@@ -87,10 +87,10 @@ export default async function FondosPage({ searchParams }: PageProps) {
   return (
     <div className="py-12 px-6">
       <div className="mx-auto max-w-[1120px]">
-        <h1 className="font-[Satoshi,sans-serif] font-bold text-[1.75rem] tracking-tight text-[#1a1a1a] mb-1">
+        <h1 className="font-[Satoshi,sans-serif] font-bold text-3xl tracking-tight text-[#1a1a1a] mb-1">
           Fondos disponibles
         </h1>
-        <p className="text-[15px] text-[#6b6b6b] mb-8">
+        <p className="text-base text-[#6b6b6b] mb-8">
           Convocatorias de financiamiento para investigación e innovación en Chile.
         </p>
 
