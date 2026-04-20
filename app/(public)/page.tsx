@@ -35,43 +35,26 @@ export default async function HomePage() {
     <div>
       {/* Hero */}
       <section className="min-h-[80vh] flex items-center px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h1 className="font-[DM_Serif_Display,serif] text-5xl md:text-6xl leading-[1.1] text-[#1a1a1a] mb-6">
-              Fondos de investigación para quienes exigen resultados.
-            </h1>
-            <p className="text-lg text-[#555555] leading-relaxed mb-8 max-w-md">
-              Centralizamos {callCount} oportunidades de financiamiento de ANID, Corfo, FIA y más agencias en Chile.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/fondos"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a3c3c] text-white text-sm font-medium rounded-full hover:bg-[#2a5a5a] transition-colors duration-200"
-              >
-                Explorar fondos
-              </Link>
-              <Link
-                href="/historico"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-[#1a3c3c] text-[#1a3c3c] text-sm font-medium rounded-full hover:bg-[#1a3c3c] hover:text-white transition-all duration-200"
-              >
-                Ver histórico
-              </Link>
-            </div>
-          </div>
-          <div className="hidden md:flex justify-center">
-            <svg width="280" height="280" viewBox="0 0 280 280" fill="none" className="opacity-60">
-              <path d="M140 20L260 140L140 260L20 140L140 20Z" stroke="#1a3c3c" strokeWidth="1" fill="none" />
-              <path d="M140 60L220 140L140 220L60 140L140 60Z" stroke="#1a3c3c" strokeWidth="0.5" fill="none" opacity="0.5" />
-              <circle cx="140" cy="140" r="4" fill="#1a3c3c" />
-              <circle cx="140" cy="80" r="3" fill="#1a3c3c" opacity="0.6" />
-              <circle cx="200" cy="140" r="3" fill="#1a3c3c" opacity="0.6" />
-              <circle cx="140" cy="200" r="3" fill="#1a3c3c" opacity="0.6" />
-              <circle cx="80" cy="140" r="3" fill="#1a3c3c" opacity="0.6" />
-              <circle cx="170" cy="110" r="2" fill="#1a3c3c" opacity="0.3" />
-              <circle cx="170" cy="170" r="2" fill="#1a3c3c" opacity="0.3" />
-              <circle cx="110" cy="170" r="2" fill="#1a3c3c" opacity="0.3" />
-              <circle cx="110" cy="110" r="2" fill="#1a3c3c" opacity="0.3" />
-            </svg>
+        <div className="mx-auto max-w-2xl">
+          <h1 className="font-[DM_Serif_Display,serif] text-5xl md:text-6xl leading-[1.1] text-[#1a1a1a] mb-6">
+            Fondos de investigación para quienes exigen resultados.
+          </h1>
+          <p className="text-lg text-[#555555] leading-relaxed mb-8 max-w-md">
+            Centralizamos {callCount} oportunidades de financiamiento de ANID, Corfo, FIA y más agencias en Chile.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/fondos"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a3c3c] text-white text-sm font-medium rounded-full hover:bg-[#2a5a5a] transition-colors duration-200"
+            >
+              Explorar fondos
+            </Link>
+            <Link
+              href="/historico"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-[#1a3c3c] text-[#1a3c3c] text-sm font-medium rounded-full hover:bg-[#1a3c3c] hover:text-white transition-all duration-200"
+            >
+              Ver histórico
+            </Link>
           </div>
         </div>
       </section>
